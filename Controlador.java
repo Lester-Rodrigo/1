@@ -1,12 +1,12 @@
 public class Controlador {
     //Atributos para crea un Salón
-    Salon[] SalonesDisponibles = new Salon[10];
-    int SalonesEnlistados = 0;
+    public Salon[] SalonesDisponibles = new Salon[10];
+    private int SalonesEnlistados = 0;
     //Atributos para crear un Evento
-    Evento[] EventosCreados = new Evento[10];
-    int EventosNuevos = 0;
-    Evento [] ListadeEspera = new Evento[100];
-    int EventosEnEspera = 0;
+    public Evento[] EventosCreados = new Evento[10];
+    private int EventosNuevos = 0;
+    public Evento [] ListadeEspera = new Evento[100];
+    private int EventosEnEspera = 0;
     //Atributos para comprobar si se asigna un evento a un salon o no
     private int Regla1;
     private int Regla2;

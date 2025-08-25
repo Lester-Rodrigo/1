@@ -70,7 +70,7 @@ public class Salon {
     }
 
     public int DepositoHecho (Salon salon1, Evento evento1){
-        if (salon1.getCostoSalon() == evento1.getPresupuesto() || salon1.getCostoSalon() < evento1.getPresupuesto() ){
+        if (salon1.getCostoSalon() <= evento1.getPresupuesto()){
             PagoHecho = 1;
         }
         else {
@@ -80,21 +80,21 @@ public class Salon {
     }
 
     public int EspacioAdecuado (Salon salon1, Evento evento1) {
-        if (salon1.getCapacidadSalon() < evento1.getInvitados()) {
-            SuficienteEspacio = 0;
+        if (salon1.getCapacidadSalon() > evento1.getInvitados()) {
+            SuficienteEspacio = 1;
         }
         else {
-            SuficienteEspacio = 1;
+            SuficienteEspacio = 0;
         }
         return SuficienteEspacio;
     }
 
     public int SalonReservado (Salon salon1, Evento evento1) {
-        if (salon1.getEventoaReservar() != null) {
-            SalonOcupado = 0;
+        if (salon1.getEventoaReservar() == null) {
+            SalonOcupado = 1;
         }
         else {
-            SalonOcupado = 1;
+            SalonOcupado = 0;
         }
         return SalonOcupado;
     }

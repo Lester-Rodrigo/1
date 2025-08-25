@@ -39,11 +39,11 @@ public class Main {
         switch (accion) {
             case 1:
                 SalonesCreados += 1;
-                if (SalonesCreados < 8) {
+                if (SalonesCreados < 11) {
                 Scanner datos = new Scanner(System.in);
                 System.out.println("Ingrese el tamaño del salón (1 Si es grande, 2 Si es mediano o 3 Si es pequeño): ");
                 Tamañosalon = datos.nextInt();
-                System.out.println("Ingrese el número del salón: ");
+                System.out.println("Ingrese el número del salón (del 0 al 9): ");
                 NumerodelSalon=(datos.nextInt());
                 System.out.println("Ingrese la capacidad del salón: ");
                 CapacidaddelSalon = (datos.nextInt());
@@ -89,24 +89,31 @@ public class Main {
             
             case 3:
                 Scanner datos = new Scanner(System.in);
-                for (Salon salon : control.SalonesDisponibles){
-                if (salon != null) {
-                    System.out.println(salon.getCapacidadSalon());
-                    System.out.println("-------------------------------------------------------------"); 
-                }
-            }
-            System.out.println("Ingrese el salón que desea: ");
-                salonreservado = control.SalonesDisponibles[(datos.nextInt())];
-
+                int orden = 0;
                 for (Evento evento : control.EventosCreados){
                 if (evento != null) {
-                    System.out.println(evento.getOrganizador());
-                    System.out.println(evento.getnombreEvento());
-                    System.out.println("-------------------------------------------------------------"); 
+                    System.out.println(orden + "" + evento.getOrganizador()+ " " + evento.getnombreEvento());
+                    orden +=1;
+                    System.out.println("-------------------------------------------------------------");
                 }
             }
             System.out.println("Ingrese su evento: ");
-                eventoasignado = control.EventosCreados[(datos.nextInt())];
+                int posicionEvento = (datos.nextInt());
+                eventoasignado = control.EventosCreados[posicionEvento];
+                System.out.println("-------------------------------------------------------------");
+
+                for (Salon salon : control.SalonesDisponibles){
+                if (salon != null) {
+                    System.out.println( salon.getNumeroSalon()+ " " + salon.getCapacidadSalon());
+                    System.out.println("-------------------------------------------------------------"); 
+                }
+            }
+                System.out.println("Ingrese el salón que desea: ");
+                int posicionSalon = (datos.nextInt());
+                salonreservado = control.SalonesDisponibles[posicionSalon];
+                System.out.println(salonreservado.getTamaño()+ " " + salonreservado.getCostoSalon() + " " + salonreservado.getCapacidadSalon() + " " + salonreservado.getNumeroSalon() + " " + salonreservado.getEventoaReservar());
+                System.out.println(control.ReservarUnSalon(salonreservado, eventoasignado, posicionSalon, posicionEvento));
+                System.out.println("-------------------------------------------------------------");
                 break;
 
             case 4:
