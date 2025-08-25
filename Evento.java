@@ -4,15 +4,19 @@ public class Evento {
     private int TipoEvento;
     private String fecha;
     private String Horario;
-    private int DuracionEvento;
+    private double DuracionEvento;
+    private int Presupuesto;
+    private int Invitados;
 
-    public Evento (String Organizador, String nombreEvento, int TipoEvento, String fecha, String Horario, int DuracionEvento) {
+    public Evento (String Organizador, String nombreEvento, int TipoEvento, String fecha, String Horario, int DuracionEvento, int Presupuesto, int Invitados) {
         this.Organizador = Organizador;
         this.nombreEvento = nombreEvento;
         this.TipoEvento = TipoEvento;
         this.fecha = fecha;
         this.Horario = Horario;
         this.DuracionEvento = DuracionEvento;
+        this.Presupuesto = Presupuesto;
+        this.Invitados = Invitados;
     }
 
     public String getOrganizador() {
@@ -55,11 +59,27 @@ public class Evento {
         this.Horario = Horario;
     }
 
-    public int getDuracionEvento() {
+    public double getDuracionEvento() {
         return DuracionEvento;
     }
 
-    public void setDuracionEvento(int DuracionEvento){
+    public void setDuracionEvento(double DuracionEvento){
         this.DuracionEvento = DuracionEvento;
+    }
+
+    public int getPresupuesto() {
+        return Presupuesto;
+    }
+
+    public void setPresupuesto(int Presupuesto){
+        this.Presupuesto = Presupuesto;
+    }
+
+    public int getInvitados() {
+        return Invitados;
+    }
+
+    public void SetInvitados(int Invitados){
+        this.Invitados = Invitados;
     }
 }
